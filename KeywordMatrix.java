@@ -22,8 +22,17 @@ public class KeywordMatrix
     static int fetchCharacterPosition(char c)
     {
         int no = c;
-        return (no-96);
-    }
+        
+        if(no >= 96) 
+        {
+            no = no-96;
+        }
+        else if(no >=65 && no <= 90)//to take care of the captal letters.
+        {
+            no = no-64;
+        }
+        return no;
+    }   
     
     static int mouldTheArray(char ch)
     {

@@ -22,7 +22,7 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/keywordEditText"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp" />
@@ -33,5 +33,7 @@
         android:text="Proceed"
         android:id="@+id/nextButton2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoMainActivity"
+        android:backgroundTint="@color/colorAccent2"/>
 </RelativeLayout>

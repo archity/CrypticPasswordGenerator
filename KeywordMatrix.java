@@ -23,6 +23,7 @@ public class KeywordMatrix
     {
         int no = c;
         
+           
         if(no >= 96) 
         {
             no = no-96;
@@ -31,14 +32,24 @@ public class KeywordMatrix
         {
             no = no-64;
         }
+        
         return no;
     }   
+    
+    
+    static int j=1; //initial char position
     
     static int mouldTheArray(char ch)
     {
        int []tempArray = new int[26];
        
-       int posToStop = fetchCharacterPosition(ch);
+       
+       int posToStop = fetchCharacterPosition(ch)+j;
+       //Reversing position is dependent on both character value and character position in the string;
+       if(posToStop > 26) {
+    	   posToStop = posToStop - 26; //if posToStop exceeds 26
+       }
+       j++;
         
        for(int i = 0; i<26; i++)
        {

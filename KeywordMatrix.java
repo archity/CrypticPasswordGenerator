@@ -70,7 +70,10 @@ public class KeywordMatrix
     {
         for(int i = 0; i<26; i++)
         {
-            arr[i] = i+1;
+            arr[i] = i;
+            /* this should be i, not i+1, else NullPointerException may be thrown
+            for letter z caused by ArrayIndexOutOfBoundsException...
+             */
         }
     }
 

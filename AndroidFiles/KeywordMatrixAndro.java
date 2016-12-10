@@ -27,13 +27,13 @@ public class KeywordMatrixAndro
     {
         int no = c;
 
-        if(no >= 96)
+        if(no >= 97)
         {
-            no = no-96;
+            no = no-97;
         }
         else if(no >=65 && no <= 90)//to take care of the capital letters.
         {
-            no = no-64;
+            no = no-65;
         }
         return no;
     }
@@ -65,7 +65,10 @@ public class KeywordMatrixAndro
     {
         for(int i = 0; i<26; i++)
         {
-            arr[i] = i+1;
+            arr[i] = i;
+            /* this should be i, not i+1, else NullPointerException may be thrown
+            for letter z caused by ArrayIndexOutOfBoundsException...
+             */
         }
     }
 

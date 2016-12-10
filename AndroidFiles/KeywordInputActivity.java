@@ -10,25 +10,30 @@ import android.widget.EditText;
 public class KeywordInputActivity extends AppCompatActivity
 {
     EditText keywordEditText;
-
+    Intent intent3;
+    String uname, site;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyword_input);
 
+        Intent tempIntent = getIntent();
+        uname = tempIntent.getStringExtra("username");
+        site = tempIntent.getStringExtra("site");
         keywordEditText = (EditText) findViewById(R.id.keywordEditText);
     }
 
     public void gotoMainActivity(View view)
     {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra("keyword", keywordEditText.getText());   //key, value
+        intent3 = new Intent(KeywordInputActivity.this, MainActivity.class);
+        intent3.putExtra("keyword", keywordEditText.getText().toString());   //key, value
+        intent3.putExtra("username", uname);
+        intent3.putExtra("site", site);
         /* Would send this data to the next activity...*/
 
-        Intent nextActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(nextActivityIntent);
+        startActivity(intent3);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        /* Goes to the nextactivity UsernameInput...*/
+
     }
 }

@@ -12,6 +12,7 @@ public class WebsiteAndUsernameInputActivity extends AppCompatActivity
 
     EditText websiteEditText, usernameEditText;
     TextView usernameTextView;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,13 +30,14 @@ public class WebsiteAndUsernameInputActivity extends AppCompatActivity
 
     public void gotoNextActivity(View view)
     {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra("site", websiteEditText.getText());   //key, value
-        intent.putExtra("username", usernameEditText.getText());
+        intent = new Intent(WebsiteAndUsernameInputActivity.this, KeywordInputActivity.class);
+
+        intent.putExtra("site", websiteEditText.getText().toString());   //key, value
+        intent.putExtra("username", usernameEditText.getText().toString());
         /* Would send this data to the next activity...*/
 
-        Intent nextActivityIntent = new Intent(getApplicationContext(), KeywordInputActivity.class);
-        startActivity(nextActivityIntent);
+        //Intent nextActivityIntent = new Intent(getApplicationContext(), KeywordInputActivity.class);
+        startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         /* Goes to the next activity KeywordInput...*/
 

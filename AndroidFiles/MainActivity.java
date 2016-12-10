@@ -1,11 +1,11 @@
 package archityadav.passwordgenerator;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.Intent; // for transition
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.widget.TextView;
+import android.telephony.TelephonyManager; //To access mobile data (IEMEI)
+import android.widget.TextView; // to display text on screen
 
 import java.util.HashMap;
 

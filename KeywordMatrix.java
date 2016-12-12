@@ -1,6 +1,10 @@
-package keywordmatrix;
+
+package cypher;
+
+
 
 import java.util.Scanner;
+import java.lang.*;
 
 /**
  *
@@ -17,39 +21,49 @@ favourite word.Something which is not too well known to the world.
 /*----------------------------------------------------------*/
 public class KeywordMatrix 
 {
-    static int []arr = new int[26];
+    
+    int []arr = new int[26];
+    public KeywordMatrix(String str)
+    {
+        
+        initializeTheArray();
+            
+        for(int i = 0; i<str.length(); i++)// loop will run till the word length
+        {
+            mouldTheArray(str.charAt(i));   
+        }
+        
+    }
+    
+    
     
     static int fetchCharacterPosition(char c)
     {
         int no = c;
         
            
-        if(no >= 96) 
+        if(no >= 97) 
         {
-            no = no-96;
+            no = no-97;
         }
-        else if(no >=65 && no <= 90)//to take care of the captal letters.
+        else if(no >=65 && no <= 90)//to take care of the capital letters.
         {
-            no = no-64;
+            no = no-65;
         }
         
         return no;
     }   
     
     
-    static int j=1; //initial char position
     
-    static int mouldTheArray(char ch)
+    int mouldTheArray(char ch)
     {
        int []tempArray = new int[26];
        
        
-       int posToStop = fetchCharacterPosition(ch)+j;
+       int posToStop = fetchCharacterPosition(ch);
        //Reversing position is dependent on both character value and character position in the string;
-       if(posToStop > 26) {
-    	   posToStop = posToStop - 26; //if posToStop exceeds 26
-       }
-       j++;
+       
         
        for(int i = 0; i<26; i++)
        {
@@ -66,34 +80,17 @@ public class KeywordMatrix
        return 0; 
     }
     
-    static void initializeTheArray()//To be called once.
+    void initializeTheArray()//To be called once.
     {
         for(int i = 0; i<26; i++)
         {
             arr[i] = i;
             /* this should be i, not i+1, else NullPointerException may be thrown
-            for letter z caused by ArrayIndexOutOfBoundsException...
+           for letter z caused by ArrayIndexOutOfBoundsException...
              */
         }
     }
 
-    public static void main(String[] args) 
-    {
-        initializeTheArray();
-        String string = new String();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your keyword: ");
-            //No blank spaces in the keyword...for now.
-        string = scanner.next();
-            
-        for(int i = 0; i<string.length(); i++)// loop will run till the word length
-        {
-            mouldTheArray(string.charAt(i));   
-        }
-        for(int i=0; i<26; i++)
-        {
-            System.out.println(arr[i]);
-        }
-    }
+    
     
 }
